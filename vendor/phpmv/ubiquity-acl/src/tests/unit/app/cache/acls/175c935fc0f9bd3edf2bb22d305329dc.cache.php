@@ -1,0 +1,2 @@
+<?php
+return array("3490551089."=>["resource"=>["value"=>false,"id"=>false,"name"=>"Home"],"role"=>["parents"=>"","id"=>false,"name"=>"@ALL"],"permission"=>["level"=>0,"id"=>false,"name"=>"ALLOW"]],"636983557."=>["resource"=>["value"=>false,"id"=>false,"name"=>"Other"],"role"=>["parents"=>"","id"=>false,"name"=>"@OTHER"],"permission"=>["level"=>0,"id"=>false,"name"=>"ALLOW_OTHER"]],"3227993076."=>["resource"=>["value"=>false,"id"=>false,"name"=>"Home"],"role"=>["parents"=>"","id"=>false,"name"=>"@OTHER"],"permission"=>["level"=>0,"id"=>false,"name"=>"ALLOWOTHER2"]]);

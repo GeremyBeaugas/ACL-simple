@@ -1,0 +1,36 @@
+build:
+  nodes:
+    analysis:
+      dependencies:
+        before:
+          - composer require phpmv/ubiquity:dev-master codeception/codeception:^4.1 phpmv/ubiquity-annotations:^0.0 --dev
+      environment:
+        php:
+          version: 7.4
+      tests:
+        override:
+          - php-scrutinizer-run
+    coverage:
+      environment:
+        php:
+          version: 7.4
+      services:
+          mysql: 5.7
+      tests:
+        before:
+          - composer require phpmv/ubiquity:dev-master phpmv/ubiquity-annotations:^0.0 --dev
+          - mysql -u root mysql < src/tests/unit/db/acls.sql
+        override:
+          - command: (cd src/ && ./../vendor/bin/codecept build && ./../vendor/bin/codecept run --coverage-xml -v)
+            coverage:
+              file: src/tests/_output/coverage.xml
+              format: clover
+
+filter:
+    paths: ["src/Ubiquity/*"]
+    excluded_paths:
+
+checks:
+    php:
+        code_rating: true
+        duplication: true

@@ -1,0 +1,375 @@
+''
+""
+'foo'
+"foo"
+'foo\
+bar'
+"foo\
+bar"
+
+"foo #bar"
+"foo #{ 42 } bar"
+
+%!foo #{ 42 }!
+%(foo #{ 42 })
+%{foo #{ 42 }}
+%[foo #{ 42 }]
+%<foo #{ 42 }>
+%Q!foo #{ 42 }!
+%Q(foo #{ 42 })
+%Q{foo #{ 42 }}
+%Q[foo #{ 42 }]
+%Q<foo #{ 42 }>
+%I!foo #{ 42 }!
+%I(foo #{ 42 })
+%I{foo #{ 42 }}
+%I[foo #{ 42 }]
+%I<foo #{ 42 }>
+%W!foo #{ 42 }!
+%W(foo #{ 42 })
+%W{foo #{ 42 }}
+%W[foo #{ 42 }]
+%W<foo #{ 42 }>
+%x!foo #{ 42 }!
+%x(foo #{ 42 })
+%x{foo #{ 42 }}
+%x[foo #{ 42 }]
+%x<foo #{ 42 }>
+
+<<STRING
+  foo #{42} bar
+STRING
+  <<-STRING
+    foo #{42} bar
+  STRING
+  <<~STRING
+    foo #{42} bar
+  STRING
+<<'STRING'
+  foo #{42} bar
+STRING
+  <<-'STRING'
+    foo #{42} bar
+  STRING
+  <<~'STRING'
+    foo #{42} bar
+  STRING
+
+----------------------------------------------------
+
+[
+	["string", ["''"]],
+	["string", ["\"\""]],
+	["string", ["'foo'"]],
+	["string", ["\"foo\""]],
+	["string", ["'foo\\\r\nbar'"]],
+	["string", ["\"foo\\\r\nbar\""]],
+	["string", ["\"foo #bar\""]],
+	["string", [
+        "\"foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        " bar\""
+    ]],
+    ["string", [
+        "%!foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "!"
+    ]],
+    ["string", [
+        "%(foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ")"
+    ]],
+    ["string", [
+        "%{foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "}"
+    ]],
+    ["string", [
+        "%[foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "]"
+    ]],
+    ["string", [
+        "%<foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ">"
+    ]],
+    ["string", [
+        "%Q!foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "!"
+    ]],
+    ["string", [
+        "%Q(foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ")"
+    ]],
+    ["string", [
+        "%Q{foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "}"
+    ]],
+    ["string", [
+        "%Q[foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "]"
+    ]],
+    ["string", [
+        "%Q<foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ">"
+    ]],
+    ["string", [
+        "%I!foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "!"
+    ]],
+    ["string", [
+        "%I(foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ")"
+    ]],
+    ["string", [
+        "%I{foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "}"
+    ]],
+    ["string", [
+        "%I[foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "]"
+    ]],
+    ["string", [
+        "%I<foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ">"
+    ]],
+    ["string", [
+        "%W!foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "!"
+    ]],
+    ["string", [
+        "%W(foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ")"
+    ]],
+    ["string", [
+        "%W{foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "}"
+    ]],
+    ["string", [
+        "%W[foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "]"
+    ]],
+    ["string", [
+        "%W<foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ">"
+    ]],
+    ["string", [
+        "%x!foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "!"
+    ]],
+    ["string", [
+        "%x(foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ")"
+    ]],
+    ["string", [
+        "%x{foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "}"
+    ]],
+    ["string", [
+        "%x[foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        "]"
+    ]],
+    ["string", [
+        "%x<foo ",
+        ["interpolation", [
+            ["delimiter", "#{"],
+            ["number", "42"],
+            ["delimiter", "}"]
+        ]],
+        ">"
+    ]],
+    ["string", [
+      ["delimiter", [
+        ["punctuation", "<<"], 
+        "STRING"
+      ]],
+      "\r\n  foo ",
+      ["interpolation", [
+        ["delimiter", "#{"],
+        ["number", "42"],
+        ["delimiter", "}"]
+      ]],
+      " bar\r\n",
+      ["delimiter", ["STRING"]]
+    ]],
+    ["string", [
+      ["delimiter", [
+        ["punctuation", "<<-"], 
+        "STRING"
+      ]],
+      "\r\n    foo ",
+      ["interpolation", [
+        ["delimiter", "#{"],
+        ["number", "42"],
+        ["delimiter", "}"]
+      ]],
+      " bar\r\n  ",
+      ["delimiter", ["STRING"]]
+    ]],
+    ["string", [
+      ["delimiter", [
+        ["punctuation", "<<~"], 
+        "STRING"
+      ]],
+      "\r\n    foo ",
+      ["interpolation", [
+        ["delimiter", "#{"],
+        ["number", "42"],
+        ["delimiter", "}"]
+      ]],
+      " bar\r\n  ",
+      ["delimiter", ["STRING"]]
+    ]],
+    ["string", [
+      ["delimiter", [
+        ["punctuation", "<<'"],
+        "STRING",
+        ["punctuation", "'"]
+      ]],
+      "\r\n  foo #{42} bar\r\n",
+      ["delimiter", ["STRING"]]
+    ]],
+    ["string", [
+      ["delimiter", [
+        ["punctuation", "<<-'"],
+        "STRING",
+        ["punctuation", "'"]
+      ]],
+      "\r\n    foo #{42} bar\r\n  ",
+      ["delimiter", ["STRING"]]
+    ]],
+    ["string", [
+      ["delimiter", [
+        ["punctuation", "<<~'"],
+        "STRING",
+        ["punctuation", "'"]
+      ]],
+      "\r\n    foo #{42} bar\r\n  ",
+      ["delimiter", ["STRING"]]
+    ]]
+]
+
+----------------------------------------------------
+
+Checks for strings and string interpolation.
